@@ -39,7 +39,7 @@ function Home() {
 
           
 
-        <div className='w-[90%] md:w-[70%] mx-auto mt-[3rem] pb-[3rem] flex flex-wrap gap-[1.25rem] justify-center'>
+        <div className='w-[95%] md:w-[70%] mx-auto mt-[3rem] pb-[3rem] flex flex-wrap gap-[0.8rem] md:gap-[1.25rem] justify-center'>
             {
               filter_food_items.map((item,i)=>{
                 return (

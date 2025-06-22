@@ -1,35 +1,60 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Nav from '../components/Nav'
 import cetagories from '../Cetagory'
 import food_items from '../ItemSet'
+import { GiChickenOven } from "react-icons/gi";
+import { GiThreeLeaves } from "react-icons/gi";
+
+
 function Home() {
+  let [cetagory,setCetagory]=useState("All");
+  let filter_food_items=food_items.filter((item,i)=>{
+    if(cetagory =="All"){
+      return true;
+    }else{
+      return cetagory.toLowerCase()==item.food_category;
+    }
+  })
+
+
   return (
     <div className='bg-slate-300 w-full min-h-[100vh]'>
         <Nav/>
-        <div className='flex flex-wrap justify-center items-center gap-[1.25rem] m-[1rem]'>
+
+
+        <div className='flex flex-wrap justify-center items-center gap-[0.75rem] m-[0.5rem] md:gap-[1.25rem] md:m-[1rem]'>
           {cetagories.map((item,i)=>{
            return( 
-            <div key={i} className='bg-white p-[0.8rem] rounded-md shadow-md flex justify-center items-center flex-col gap-1 hover:bg-green-200 hover:shadow-xl cursor-pointer transition-all duration-200'>
+            <div key={i} className='bg-white p-[0.6rem] md:p-[0.8rem] rounded-md shadow-md flex justify-center items-center flex-col gap-[3px] md:gap-1 hover:bg-green-200 hover:shadow-xl cursor-pointer transition-all duration-200' 
+            onClick={()=>{setCetagory(item.name)}}>
               <div>
               {item.image}
               </div>
-              <div className='font-bold'>
+              <div className='text-[0.75rem] md:text-[1rem] md:font-semibold'>
               {item.name}
               </div>
             </div>
           )})}
         </div>
-        <div>
+
+          
+
+        <div className='w-[90%] md:w-[70%] mx-auto mt-[3rem] pb-[3rem] flex flex-wrap gap-[1.25rem] justify-center'>
             {
-              food_items.map((item,i)=>{
+              filter_food_items.map((item,i)=>{
                 return (
-                  <div>
-                    <div className='w-[7rem] h-[9.5rem]'>
+                  <div className='bg-white p-[0.6rem] md:p-[0.8rem] rounded-xl shadow-md flex flex-col items-center justify-center gap-1' key={i}>
+                    <div className='w-[9rem] h-[9rem] flex rounded-xl overflow-hidden'>
                       <img src={item.food_image} alt="" />
                     </div>
-                    <div>
+                    <div className='text-[0.85rem] font-medium md:font-bold'>
                       {item.food_name}
                     </div>
+                    <div className='w-full flex justify-between text-green-700 text-[0.75rem] md:text-[0.85rem] font-medium p-[0.4rem]'>
+                        <p>Rs {item.price}/-</p>
+                        <p className='flex gap-[0.15rem] items-center'>{item.food_type !=  'veg' ? <GiChickenOven />:<GiThreeLeaves />}{item.food_type}</p>
+                    </div>
+                    <button type='submit' className='bg-green-300 hover:bg-green-500 transition-all duration-200 text-[0.75rem] md:text-[0.85rem] font-medium p-1 rounded-md w-full'>Add to Dish</button>
                   </div>
                 )
               })

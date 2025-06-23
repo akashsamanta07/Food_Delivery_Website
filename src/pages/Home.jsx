@@ -5,6 +5,9 @@ import food_items from '../ItemSet'
 import { GiChickenOven } from "react-icons/gi";
 import { GiThreeLeaves } from "react-icons/gi";
 
+import { ToastContainer, toast } from 'react-toastify';
+
+
 
 function Home() {
   let [cetagory,setCetagory]=useState("All");
@@ -16,12 +19,21 @@ function Home() {
     }
   })
 
+  let show=()=>{
+    toast.success('Select item added');
+  }
+
+
+
+
+
+
+
+
 
   return (
     <div className='bg-slate-300 w-full min-h-[100vh]'>
         <Nav/>
-
-
         <div className='flex flex-wrap justify-center items-center gap-[0.75rem] m-[0.5rem] md:gap-[1.25rem] md:m-[1rem]'>
           {cetagories.map((item,i)=>{
            return( 
@@ -54,12 +66,13 @@ function Home() {
                         <p>Rs {item.price}/-</p>
                         <p className='flex gap-[0.15rem] items-center'>{item.food_type !==  'veg' ? <GiChickenOven />:<GiThreeLeaves />}{item.food_type}</p>
                     </div>
-                    <button type='submit' className='bg-green-300 hover:bg-green-500 transition-all duration-200 text-[0.75rem] md:text-[0.85rem] font-medium p-1 rounded-md w-full'>Add to Dish</button>
+                    <button type='submit' className='bg-green-300 hover:bg-green-500 transition-all duration-200 text-[0.75rem] md:text-[0.85rem] font-medium p-1 rounded-md w-full' onClick={show}>Add to Dish</button>
                   </div>
                 )
               })
             }
         </div>
+        <ToastContainer />
     </div>
     
   )

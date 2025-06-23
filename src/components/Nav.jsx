@@ -7,7 +7,8 @@ import { LuShoppingBag } from "react-icons/lu";
 //onSubmit={(event)=>{event.preventDefault()}}
 
 function Nav({prop}) {
-    let {searchWord,setSearchWord,setOrder}=prop;
+    let {searchWord,setSearchWord,setOrder,itemlist,setItemlist}=prop;
+    
   return (
     <div>
         <div className='w-full h-[3rem] flex justify-between items-center px-[0.6rem] md:px-8 md:h-[6.25rem]'>
@@ -24,7 +25,7 @@ function Nav({prop}) {
                 </div>
             </form>
             <div className='w-[2.2rem] h-[2.2rem] md:w-[3.75rem] md:h-[3.75rem] bg-white flex justify-center items-center rounded-md shadow-xl relative cursor-pointer' onClick={()=>{ setOrder(1) }}>
-                <span className='absolute top-0 right-[0.1rem] md:right-[0.3rem] text-[0.6rem] md:text-[1rem] text-green-600 font-medium md:font-bold'>0</span>
+                <span className='absolute top-0 right-[0.1rem] md:right-[0.3rem] text-[0.6rem] md:text-[1rem] text-green-600 font-medium md:font-bold'>{itemlist.length}</span>
                 <LuShoppingBag className='w-[1.2rem] h-[1.2rem] md:w-[1.8rem] md:h-[1.8rem] text-green-600'/>
             </div>
         </div>

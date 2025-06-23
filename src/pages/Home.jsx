@@ -1,8 +1,9 @@
-import React, { useState,useEffect } from 'react'
-import Nav from '../components/Nav'
-import cetagories from '../Cetagory'
-import food_items from '../ItemSet'
-import Card from '../Card'
+import React, { useState,useEffect } from 'react';
+import Nav from '../components/Nav';
+import cetagories from '../Cetagory';
+import food_items from '../ItemSet';
+import Card from '../Card';
+import Order from '../Order';
 
 
 
@@ -13,17 +14,26 @@ function Home() {
   const [cetagory,setCetagory]=useState("All");
   // let [searchWord,setSearchWord]=useState("");
   const [searchWord,setSearchWord]=useState(()=>{
-    const save=localStorage.getItem("searchWord");
+    const save=localStorage.getItem("prev_value");
     return save !== null ? JSON.parse(save):"";
   });
   useEffect(()=>{
-    localStorage.setItem("searchWord",JSON.stringify(searchWord));
+    localStorage.setItem("prev_value",JSON.stringify(searchWord));
   },[searchWord]);
+
+  const [order,setOrder]=useState(0)
+
   let navchange={
     searchWord,
-    setSearchWord
+    setSearchWord,
+    setOrder
   };
-  
+  let bucket={
+    order,
+    setOrder
+  }
+
+
   let tem_food_items=food_items.filter((item,i)=>{
     if(cetagory ==="All"){
       return true;
@@ -68,6 +78,8 @@ function Home() {
               })
             }
         </div>
+
+          <Order prop={bucket}/>
         
     </div>
     

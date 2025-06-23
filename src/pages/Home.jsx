@@ -44,7 +44,7 @@ function Home() {
               filter_food_items.map((item,i)=>{
                 return (
                   <div className='bg-white p-[0.6rem] md:p-[0.8rem] rounded-xl shadow-md flex flex-col items-center justify-center gap-1 border-2 hover:shadow-lg hover:border-green-600 transition-all duration-200' key={i}>
-                    <div className='w-[9rem] h-[9rem] flex rounded-xl overflow-hidden'>
+                    <div className='w-[8.75rem] h-[8.75rem] flex rounded-xl overflow-hidden'>
                       <img src={item.food_image} alt="" />
                     </div>
                     <div className='text-[0.85rem] font-medium md:font-bold'>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Nav from '../components/Nav'
 import cetagories from '../Cetagory'
 import food_items from '../ItemSet'
@@ -10,12 +10,20 @@ import Card from '../Card'
 
 
 function Home() {
-  let [cetagory,setCetagory]=useState("All");
-  let [searchWord,setSearchWord]=useState("");
+  const [cetagory,setCetagory]=useState("All");
+  // let [searchWord,setSearchWord]=useState("");
+  const [searchWord,setSearchWord]=useState(()=>{
+    const save=localStorage.getItem("searchWord");
+    return save !== null ? JSON.parse(save):"";
+  });
+  useEffect(()=>{
+    localStorage.setItem("searchWord",JSON.stringify(searchWord));
+  },[searchWord]);
   let navchange={
     searchWord,
     setSearchWord
   };
+  
   let tem_food_items=food_items.filter((item,i)=>{
     if(cetagory ==="All"){
       return true;

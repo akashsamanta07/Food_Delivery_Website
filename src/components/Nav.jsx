@@ -4,7 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import { LuShoppingBag } from "react-icons/lu";
 
 
-
+//onSubmit={(event)=>{event.preventDefault()}}
 
 function Nav({prop}) {
     let {searchWord,setSearchWord}=prop;
@@ -14,7 +14,7 @@ function Nav({prop}) {
             <div className='w-[2.2rem] h-[2.2rem] md:w-[3.75rem] md:h-[3.75rem] bg-white flex justify-center items-center rounded-md shadow-xl cursor-pointer' >
                 <IoFastFood className='w-[1.2rem] h-[1.2rem] md:w-[1.8rem] md:h-[1.8rem] text-green-600'/>
             </div>
-            <form action="" className='w-[60%] h-[2.2rem] md:h-[3.75rem] bg-white flex flex-row-reverse items-center px-[20px] gap-3 rounded-md shadow-md' onSubmit={(event)=>{event.preventDefault()}}>
+            <form action="" className='w-[60%] h-[2.2rem] md:h-[3.75rem] bg-white flex flex-row-reverse items-center px-[20px] gap-3 rounded-md shadow-md' >
                 <div>
                     <FaSearch className='text-green-600 md:w-[1.25rem] md:h-[1.25rem] cursor-pointer'/>
                 </div>

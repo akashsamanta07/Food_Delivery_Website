@@ -25,14 +25,11 @@ function Home() {
   },[searchWord]);
 
   const [order,setOrder]=useState(0)
-  const [itemlist,setItemlist]=useState([]);
 
   let navchange={
     searchWord,
     setSearchWord,
     setOrder,
-    itemlist,
-    setItemlist
   };
   let bucket={
     order,
@@ -78,13 +75,10 @@ function Home() {
                     let itemset={
                       id:item.id,
                       food_name:item.food_name,
-                      food_cetagory:item.food_category,
                       food_type:item.food_type,
                        food_quantity :item.food_quantity,
                         food_image:item.food_image,
                          price:item.price,
-                      itemlist,
-                      setItemlist
                   }
                     return (
                       <Card 

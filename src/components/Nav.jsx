@@ -1,13 +1,20 @@
-import React from 'react'
+import React ,{useContext} from 'react'
 import { IoFastFood } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import { LuShoppingBag } from "react-icons/lu";
+import { data } from '../context/UserContext';
 
 
 //onSubmit={(event)=>{event.preventDefault()}}
 
 function Nav({prop}) {
-    let {searchWord,setSearchWord,setOrder,itemlist,setItemlist}=prop;
+    let {searchWord,setSearchWord,setOrder}=prop;
+
+
+    let item=useContext(data);
+    let {itemlist,setItemlist}=item;
+
+
     
   return (
     <div>

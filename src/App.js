@@ -7,7 +7,7 @@ function App() {
   return (
     <>
      <Home/>
-    <ToastContainer autoClose={800} />
+    <ToastContainer autoClose={400} />
     </>
    
   )

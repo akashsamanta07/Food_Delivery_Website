@@ -77,7 +77,7 @@ function Order({prop}){
   }
 
   return (
-    <div className={`w-[90vw]  md:w-[50vw] text-center p-[1rem] md:p-[3rem]  bg-white absolute top-[10px]  ${order === 1 ? "right-[10px]" : "right-[-90vw] md:right-[-50vw]"} transition-all duration-200 rounded-lg shadow-black border-2 border-stone-200`}>
+    <div className={`w-[90vw] h-[95vh] md:w-[50vw] text-center p-[1rem] md:p-[3rem]  bg-white fixed top-[10px] overflow-y-scroll ${order === 1 ? "right-[10px]" : "right-[-90vw] md:right-[-50vw]"} transition-all duration-200 rounded-lg shadow-black border-2 border-stone-200`}>
       <div className='pb-[2rem] flex justify-between items-center text-green-500'>
           <p className='text-[1.2rem]'>Order Items</p>
           <ImCross onClick={()=>{setOrder(0)}}/>
